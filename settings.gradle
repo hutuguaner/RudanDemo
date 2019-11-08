@@ -1,0 +1,2 @@
+include ':app', ':chatkit'
+rootProject.name='RudanDemo'
