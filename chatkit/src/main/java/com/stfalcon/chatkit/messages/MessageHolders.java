@@ -1,5 +1,6 @@
 package com.stfalcon.chatkit.messages;
 
+import android.graphics.Color;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.util.SparseArray;
@@ -22,6 +23,7 @@ import com.stfalcon.chatkit.commons.models.IMessage;
 import com.stfalcon.chatkit.commons.models.MessageContentType;
 import com.stfalcon.chatkit.utils.DateFormatter;
 import com.stfalcon.chatkit.utils.RoundedImageView;
+import com.stfalcon.chatkit.utils.ShapeImageView;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -748,6 +750,7 @@ public class MessageHolders {
 
         protected ViewGroup bubble;
         protected TextView text;
+        protected ShapeImageView shapeImageView;
 
         @Deprecated
         public IncomingTextMessageViewHolder(View itemView) {
@@ -769,6 +772,10 @@ public class MessageHolders {
 
             if (text != null) {
                 text.setText(message.getText());
+            }
+
+            if(shapeImageView!=null){
+                shapeImageView.setImageResource(R.mipmap.ic_launcher);
             }
         }
 
@@ -796,6 +803,7 @@ public class MessageHolders {
         private void init(View itemView) {
             bubble = (ViewGroup) itemView.findViewById(R.id.bubble);
             text = (TextView) itemView.findViewById(R.id.messageText);
+            shapeImageView = itemView.findViewById(R.id.messageUserAvatar);
         }
     }
 
